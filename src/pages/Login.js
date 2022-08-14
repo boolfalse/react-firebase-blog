@@ -9,7 +9,7 @@ const Login = ({setIsAuth}) => {
     const signInWithGoogle = async () => {
         signInWithPopup(auth, googleAuthProvider).then(() => {
             setIsAuth(true);
-            localStorage.setItem("isAuth", true);
+            localStorage.setItem("isAuth", '1');
             navigate("/");
         }).catch(err => {
             console.log(err.message);

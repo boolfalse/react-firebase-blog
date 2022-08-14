@@ -10,12 +10,12 @@ import {useState} from "react";
 
 function App() {
     const localStorageAuth = localStorage.getItem("isAuth");
-    const [isAuth, setIsAuth] = useState(localStorageAuth === true);
+    const [isAuth, setIsAuth] = useState(localStorageAuth === '1');
 
     const logout = () => {
         signOut(auth).then(() => {
             setIsAuth(false);
-            localStorage.setItem("isAuth", false); // localStorage.clear();
+            localStorage.setItem("isAuth", '0'); // localStorage.clear();
             window.location.pathname = "/login"; // we can't use useNavigate() hook outside the component
         }).catch(err => {
             console.log(err.message);
