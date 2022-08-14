@@ -21,6 +21,18 @@ npm install
 - Create a new Firebase project and get credentials.
 - Add Sign-In with Google as a provider.
 - Add a Web App to your Firebase project and get credentials.
+- In Firestore Data add a collection named `posts`.
+- Change Firestore Rules to allow read and write access to the `posts` collection:
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+```
 - Set up the Firebase credentials in the `.env` file as described in the `.env.example` file.
 
 - Run the application:
